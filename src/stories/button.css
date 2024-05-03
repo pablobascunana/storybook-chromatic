@@ -28,3 +28,7 @@
   font-size: 16px;
   padding: 12px 24px;
 }
+
+.storybook-button--hover:hover {
+  background-color: #61cba4;
+}

@@ -24,18 +24,30 @@ const props = withDefaults(defineProps<{
    */
   backgroundColor?: string,
 
-}>(), { primary: false });
+  /**
+   * hover color of the button
+   */
+  hover?: boolean,
+
+}>(), { primary: false, hover: false });
 
 const emit = defineEmits<{
   (e: 'click', id: number): void;
 }>();
 
-const classes = computed(() => ({
-  'storybook-button': true,
-  'storybook-button--primary': props.primary,
-  'storybook-button--secondary': !props.primary,
-  [`storybook-button--${props.size || 'medium'}`]: true,
-}));
+const classes = computed(() => {
+  let styling = {
+    'storybook-button': true,
+    'storybook-button--primary': props.primary,
+    'storybook-button--secondary': !props.primary,
+    [`storybook-button--${props.size || 'medium'}`]: true,
+  }
+  if (props.hover) {
+    const hover = { 'storybook-button--hover': props.hover || 'none' }
+    styling = { ...styling, ...hover }
+  }
+  return styling;
+});
 
 const style = computed(() => ({
   backgroundColor: props.backgroundColor

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { fn } from '@storybook/test';
+import { computed } from 'vue';
 import Button from './Button.vue';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
@@ -53,3 +54,44 @@ export const Small: Story = {
     size: 'small',
   },
 };
+
+export const Hover: Story = {
+  args: {
+    label: 'Button',
+    primary: true,
+    hover: true,
+  },
+}
+
+export const BackgroundColor: Story = {
+  render: (args) => ({
+    components: { Button },
+    template: `
+      <button type="button" :class="classes" @click="onClick" :style="style">{{ args.label }}</button>
+    `,
+    setup() {
+      const classes = computed(() => ({
+        'storybook-button': true,
+        'storybook-button--primary': args.primary,
+        'storybook-button--secondary': !args.primary,
+        [`storybook-button--${args.size}`]: true,
+      }));
+
+      const style = computed(() => ({
+        backgroundColor: args.backgroundColor
+      }));
+
+      const onClick = () => {
+        args.backgroundColor = 'red';
+      }
+
+    return { args, classes, style, onClick };
+    },
+  }),
+  args: {
+    label: 'Button',
+    primary: true,
+    size: 'medium',
+    backgroundColor: 'black'
+  },
+}

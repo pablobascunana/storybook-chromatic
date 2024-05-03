@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { fn } from '@storybook/test';
 import { computed } from 'vue';
 import Modal from './Modal.vue';
 import Button from './Button.vue';
@@ -10,6 +11,7 @@ const meta = {
   subcomponents: { Button },
   tags: ['autodocs'],
   args: {
+    onClose: fn(),
     visible: false
   },
   argTypes: {

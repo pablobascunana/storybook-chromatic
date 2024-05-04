@@ -8,7 +8,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .modal {
@@ -31,7 +30,6 @@
 .modal-header {
     position: relative;
     border-bottom: 1px solid #eeeeee;
-    /* color: #4AAE9B; */
     justify-content: space-between;
 }
 

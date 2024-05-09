@@ -72,7 +72,7 @@ PlayModal.play = async ({ canvasElement }) => {
   await userEvent.click(buttonElement);
 
   expect(buttonElement).toBeTruthy();
-  await expect(canvas.getByText("This is the default modal title!")).toBeInTheDocument();
+  await expect(canvas.getByText("This is the default modal title - Fail!")).toBeInTheDocument();
   await expect(canvas.getByText("This is the default modal body!")).toBeInTheDocument();
   await expect(canvas.getByText("This is the default modal footer!")).toBeInTheDocument();
 };

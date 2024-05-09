@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { fn } from '@storybook/test';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import Button from './Button.vue';
+import { userEvent, within, expect, waitFor } from '@storybook/test';
+import './button.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
@@ -94,4 +96,17 @@ export const BackgroundColor: Story = {
     size: 'medium',
     backgroundColor: 'black'
   },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement);
+
+    const buttonEl = canvas.getByRole("button");
+    await step('Check bg color before click', async () => {
+      await expect(buttonEl).toHaveStyle('background-color: rgb(0, 0, 0)');
+    });
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    await userEvent.click(buttonEl);
+    await step('Check bg color after click', async () => {
+      await expect(buttonEl).toHaveStyle('background-color: rgb(255, 0, 0)');
+    });
+  }
 }

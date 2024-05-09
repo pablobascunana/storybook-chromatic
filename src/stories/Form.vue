@@ -14,7 +14,6 @@
 </template>
 
 <script lang="ts" setup>
-import './form.css';
 import { withDefaults } from 'vue';
 
 const { props, withDefaults } = withDefaults(defineProps<{
@@ -45,3 +44,7 @@ const handleSubmit = () => {
   
 };
 </script>
+
+<style lang="css" scoped>
+@import './form.css';
+</style>

@@ -3,7 +3,6 @@
 </template>
 
 <script lang="ts" setup>
-import './button.css';
 import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
@@ -58,3 +57,7 @@ const onClick = () => {
 };
 
 </script>
+
+<style lang="css" scoped>
+@import './button.css';
+</style>

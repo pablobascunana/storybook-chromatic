@@ -59,7 +59,7 @@ export const FilledForm: Story  = {
     await step('Enter info', async () => {
       await userEvent.type(canvas.getByRole('nameInput'), 'Jon Snow');
       await new Promise(resolve => setTimeout(resolve, 1000));
-      await userEvent.type(canvas.getByRole('emailInput'), 'email@provider.com');
+      await userEvent.type(canvas.getByRole('emailInput'), 'jonsnow@gmail.com');
     });
 
     await new Promise(resolve => setTimeout(resolve, 1000));

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { fn } from '@storybook/test';
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import Button from './Button.vue';
-import { userEvent, within, expect, waitFor } from '@storybook/test';
+import { userEvent, within, expect } from '@storybook/test';
 import './button.css';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories

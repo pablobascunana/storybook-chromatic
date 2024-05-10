@@ -34,8 +34,8 @@ const { props, withDefaults } = withDefaults(defineProps<{
    */
   visible: boolean,
 }>(), { 
-  namePlaceholder: 'Please, enter your name...',
-  emailPlaceholder: 'Please, enter your email...',
+  namePlaceholder: 'Please, enter your name',
+  emailPlaceholder: 'Please, enter your email',
   submitLabel: 'Submit information',
   visible: false
 });

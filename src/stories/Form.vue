@@ -9,7 +9,7 @@
     <div>
       <button name="submit" type="submit">{{ submitLabel }}</button>
     </div>
-    <h4 class="submitted" v-if="visible">The information has been sent!</h4>
+    <h4 class="submitted" v-if="visible">Ready</h4>
   </form>
 </template>
 
@@ -34,7 +34,7 @@ const { props, withDefaults } = withDefaults(defineProps<{
    */
   visible: boolean,
 }>(), { 
-  namePlaceholder: 'Please, enter your name',
+  namePlaceholder: 'Enter name',
   emailPlaceholder: 'Please, enter your email',
   submitLabel: 'Submit information',
   visible: false
